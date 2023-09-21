@@ -74,8 +74,12 @@ jobs:
 
       - name: 🚀 Deploy to Azure Web App
         run: |
-          az webapp deploy --resource-group rg-martin --name ${{ secrets.AZURE_APP_SERVICE_NAME }} --src-path ${{ github.workspace }}/Nextjs-site.zip
-          az webapp log deployment show -n ${{ secrets.AZURE_APP_SERVICE_NAME }} -g rg-martin
+          az webapp deploy --resource-group rg-martin --name mlee-ai-test3-webapp-iew3rs6qrsiqc --src-path ${{ github.workspace }}/Nextjs-site.zip
+          az webapp log deployment show -n mlee-ai-test3-webapp-iew3rs6qrsiqc -g rg-martin
+          
+      - name: 🔍 Check WebApp Logs 
+        run: |
+          az webapp log deployment show -n mlee-ai-test3-webapp-iew3rs6qrsiqc -g rg-martin
 
       - name: 🧹 Cleanup
         run: rm ${{ github.workspace }}/Nextjs-site.zip
